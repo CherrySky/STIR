@@ -27,7 +27,7 @@
     </style>
 
     <script src="https://maps.googleapis.com/maps/api/js"></script>
-    <script src="http://cherrysky.github.io/STIR/data/data.json"></script>
+    <script src="https://googlemaps.github.io/js-marker-clusterer/examples/data.json"></script>
 	<script src="https://rawgit.com/googlemaps/js-marker-clusterer/gh-pages/src/markerclusterer_compiled.js"></script>
 
     <script>
@@ -39,11 +39,10 @@
           center: center,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         });
-
         var markers = [];
-		
         for (var i = 0; i < data.photos.length; i++) {
           var dataPhoto = data.photos[i];		  
+		  console.log(dataPhoto)
           var latLng = new google.maps.LatLng(dataPhoto.latitude,dataPhoto.longitude);
           var marker = new google.maps.Marker({
             position: latLng
@@ -53,7 +52,10 @@
           markers.push(marker);
         }
         var markerCluster = new MarkerClusterer(map, markers);
+		document.querySelector('.content .value').innerHTML = data.photos.length;
       }
+	  
+	  
 	  function attachSecretMessage(marker, secretMessage) {
 		var infowindow = new google.maps.InfoWindow({		 
 		content: secretMessage 
@@ -83,6 +85,8 @@
       <a href="?compiled">Compiled</a> |
       <a href="?">Standard</a> version of the script.
     </p>
+	<div class="content">Total Number of service: <span class='value'></span></div>
     <div id="map-container"><div id="map"></div></div>
+	
   </body>
 </html>
