@@ -48,7 +48,8 @@
           var marker = new google.maps.Marker({
             position: latLng
           });
-		  attachSecretMessage(marker, dataPhoto.photo_title);
+		  var infowindowContent = dataPhoto.photo_title
+		  attachSecretMessage(marker, infowindowContent);
           markers.push(marker);
         }
         var markerCluster = new MarkerClusterer(map, markers);
