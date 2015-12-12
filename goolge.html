@@ -45,6 +45,7 @@
           var services = data.services[i];
           var latLng = new google.maps.LatLng(services.latitude,services.longitude);
 		  
+		  console.log(services.category)
 		  var image = getMarkerIcon(services.category);
           var marker = new google.maps.Marker({
             position: latLng,
@@ -60,7 +61,7 @@
       }
 	  
 	  function getMarkerIcon(category) {
-		  switch (catagory) {
+		  switch (category) {
 			case 'ngo':
 				return 'https://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png';
 			case 'corp':
