@@ -40,14 +40,13 @@
           mapTypeId: google.maps.MapTypeId.ROADMAP
         });
         var markers = [];
-        for (var i = 0; i < data.photos.length; i++) {
-          var dataPhoto = data.photos[i];		  
-		  console.log(dataPhoto)
-          var latLng = new google.maps.LatLng(dataPhoto.latitude,dataPhoto.longitude);
+        for (var i = 0; i < data.services.length; i++) {
+          var services = data.services[i];
+          var latLng = new google.maps.LatLng(services.latitude,services.longitude);
           var marker = new google.maps.Marker({
             position: latLng
           });
-		  var infowindowContent = dataPhoto.photo_title
+		  var infowindowContent = services.service_details
 		  attachSecretMessage(marker, infowindowContent);
           markers.push(marker);
         }
