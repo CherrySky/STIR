@@ -27,9 +27,7 @@
     </style>
 
     <script src="https://maps.googleapis.com/maps/api/js"></script>
-	
     <script src="http://cherrysky.github.io/STIR/data/data.json"></script>
-	
 	<script src="https://rawgit.com/googlemaps/js-marker-clusterer/gh-pages/src/markerclusterer_compiled.js"></script>
 
     <script>
@@ -43,11 +41,9 @@
         });
 
         var markers = [];
-        for (var i = 0; i < 100; i++) {
-          var dataPhoto = data.photos[i];
-		  console.log(dataPhoto);
-		  console.log(dataPhoto.latitude);
-		  console.log(dataPhoto.longitude);
+		
+        for (var i = 0; i < data.photos.length; i++) {
+          var dataPhoto = data.photos[i];		  
           var latLng = new google.maps.LatLng(dataPhoto.latitude,dataPhoto.longitude);
           var marker = new google.maps.Marker({
             position: latLng
