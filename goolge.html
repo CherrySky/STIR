@@ -40,12 +40,17 @@
           mapTypeId: google.maps.MapTypeId.ROADMAP
         });
         var markers = [];
+		
         for (var i = 0; i < data.services.length; i++) {
           var services = data.services[i];
           var latLng = new google.maps.LatLng(services.latitude,services.longitude);
+		  
+		  var image = getMarkerIcon(services.category);
           var marker = new google.maps.Marker({
-            position: latLng
+            position: latLng,
+            icon: image
           });
+		  
 		  var infowindowContent = services.service_details
 		  attachSecretMessage(marker, infowindowContent);
           markers.push(marker);
@@ -53,6 +58,22 @@
         var markerCluster = new MarkerClusterer(map, markers);
 		document.querySelector('.content .value').innerHTML = data.services.length;
       }
+	  
+	  function getMarkerIcon(category) {
+		  switch (catagory) {
+			case 'ngo':
+				return 'https://maps.gstatic.com/mapfiles/ms2/micons/blue-dot.png';
+			case 'corp':
+				return 'https://maps.gstatic.com/mapfiles/ms2/micons/red-dot.png';
+			case 'gov':
+				return 'https://maps.gstatic.com/mapfiles/ms2/micons/yellow-dot.png';
+			case 'school':
+				return 'https://maps.gstatic.com/mapfiles/ms2/micons/pink-dot.png';
+			default:
+				return 'https://maps.gstatic.com/mapfiles/ms2/micons/purple-dot.png';
+			}
+			
+	  }
 	  
 	  
 	  function attachSecretMessage(marker, secretMessage) {
