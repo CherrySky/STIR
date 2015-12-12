@@ -1,4 +1,0 @@
-var data = { "count": 1,
- "photos": [{"photo_id": 1, "photo_title": "<p>Name: Atardecer en Embalse</br>Address: abd</br>Phone: 234234</p>", "photo_url": "http://www.panoramio.com/photo/27932", "photo_file_url": "http://mw2.google.com/mw-panoramio/photos/medium/27932.jpg", "longitude": -64.404945, "latitude": -32.202924, "width": 500, "height": 375, "upload_date": "25 June 2006", "owner_id": 4483, "owner_name": "Miguel Coranti", "owner_url": "http://www.panoramio.com/user/4483"}
-]}
-
